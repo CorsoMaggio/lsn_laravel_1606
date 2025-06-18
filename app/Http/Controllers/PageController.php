@@ -7,13 +7,12 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 
-
 {
-
     public function send(Request $request)
     {
+        $request->validate(['email' => ['required', 'email'], 'message' => ['required', 'max:20']]);
+
         dd($request->all());
-        
     }
     public function homepage()
     {
